@@ -1,10 +1,9 @@
 const db = require("../models")
-const { Workout } = require("../models")
 
 module.exports = function (app) {
     // Get all workouts
     app.get("/api/workouts", (req, res) => {
-        db.Workout.find()
+        db.Workout.find({})
             .then(dbWorkouts => {
                 res.json(dbWorkouts)
             })
@@ -12,22 +11,26 @@ module.exports = function (app) {
     })
 
     app.post("/api/workouts", ({ body }, res) => {
-        db.Workout.create(body)
+         db.Workout.create(body)
             .then(newWorkout => {
                 res.json(newWorkout)
             })
             .catch(err => res.json(err))
     })
 
-    app.get("/api/workouts/:id", (req, res) => {
-        db.Workout.findById({ id: req.params.id })
-            .then(workout => res.json(workout))
+    app.put("/api/workouts/:id", (req, res) => {
+        console.log(req.params.id)
+        let body = req.body
+        db.Workout.findByIdAndUpdate( req.params.id, {$push: {exercises: body} })
+            .then(updateWorkouts => res.json(updateWorkouts))
             .catch(err => res.json(err))
     })
 
-    app.put("/api/workouts/:id", ({body}, res) => {
-        db.Workout.update({}, { $push: { body } })
-            .then(updateWorkouts => res.json(updateWorkouts))
+    app.get("/api/workouts/range", (req, res) => {
+        db.Workout.find()
+            .then(dbWorkouts => {
+                res.json(dbWorkouts)
+            })
             .catch(err => res.json(err))
     })
 }
