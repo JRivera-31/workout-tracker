@@ -1,4 +1,5 @@
 const db = require("../models")
+const { Workout } = require("../models")
 
 module.exports = function (app) {
     // Get all workouts
@@ -21,6 +22,12 @@ module.exports = function (app) {
     app.get("/api/workouts/:id", (req, res) => {
         db.Workout.findById({ id: req.params.id })
             .then(workout => res.json(workout))
+            .catch(err => res.json(err))
+    })
+
+    app.put("/api/workouts/:id", ({body}, res) => {
+        db.Workout.update({}, { $push: { body } })
+            .then(updateWorkouts => res.json(updateWorkouts))
             .catch(err => res.json(err))
     })
 }
