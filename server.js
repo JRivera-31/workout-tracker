@@ -1,9 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://user1:password1@ds157040.mlab.com:57040/heroku_kvs7lp26", {
-  
-});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
 const logger = require("morgan")
 const app = express();
