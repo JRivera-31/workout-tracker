@@ -9,7 +9,7 @@ module.exports = function (app) {
             })
             .catch(err => res.json(err))
     })
-
+    // post workout
     app.post("/api/workouts", ({ body }, res) => {
          db.Workout.create(body)
             .then(newWorkout => {
@@ -17,7 +17,7 @@ module.exports = function (app) {
             })
             .catch(err => res.json(err))
     })
-
+    // update posted workout
     app.put("/api/workouts/:id", (req, res) => {
         console.log(req.params.id)
         let body = req.body
@@ -25,7 +25,7 @@ module.exports = function (app) {
             .then(updateWorkouts => res.json(updateWorkouts))
             .catch(err => res.json(err))
     })
-
+    // display workouts on stats page
     app.get("/api/workouts/range", (req, res) => {
         db.Workout.find()
             .then(dbWorkouts => {
