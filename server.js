@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { use
 const logger = require("morgan")
 const app = express();
 
-const PORT = 3000
+const PORT = process.env.PORT || 8080
 
 app.use(logger("dev"))
 app.use(express.urlencoded({ extended: true }));
