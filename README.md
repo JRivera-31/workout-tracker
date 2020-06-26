@@ -16,8 +16,6 @@ Deployed link: https://powerful-savannah-67366.herokuapp.com/?id=5ef40aa96ba2440
 
 -[Credits](#credits)
 
--[Test](#test)
-
 ## Installation:
 
 **How to install the project:** **Must have Node.js. Clone the Github repo and run:
@@ -39,11 +37,3 @@ To track your workouts!
 ## Credits:
 
 **Credits to contributors:** N/A
-
-## Test:
-
-**How to test the project:** Clone github repo and run:
-
-```
-npm i
-```
