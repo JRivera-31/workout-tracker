@@ -5,7 +5,11 @@
 
 This project will allow a user to track their workouts so that they can improve at a faster/steadier rate. You can view your last workout when you load the page initially, if there isn't a last workout entry, it will prompt to create a new workout. You can view all of your workout stats on the dashboard which visualizes your data.
 
+<<<<<<< HEAD
 Deployed demo: https://youtu.be/5i7ufv5HYMY
+=======
+![App Demo](/assets/FitnessTracker.gif)
+>>>>>>> 78d8055bcb9b1ce649da9ad9dc4dfe80b269ea6d
 
 Deployed link: https://powerful-savannah-67366.herokuapp.com/?id=5ef40aa96ba24400177f7a35
 
